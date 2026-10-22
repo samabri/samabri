@@ -4,477 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sambri</title>
-    <link rel="icon" type="image/png" href="images/images.png">
-    <link rel="apple-touch-icon" href="images/images.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="images/images.png" color="#ff4d8d">
-    <link rel="shortcut icon" href="images/images.png">
-    <link rel="apple-touch-startup-image" href="images/images.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/images.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/images.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/images.png">
-    <link rel="stylesheet" href="css/style.css">
     <meta name="theme-color" content="#ff4d8d">
+    <title>Sambri</title>
 
+    <link rel="icon" type="image/png" href="images/images.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/images.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --rosa: #ff4d8d;
-            --rosa-oscuro: #d63c75;
-            --rosa-claro: #ffe4ee;
-            --blanco: #ffffff;
-            --gris: #f5f5f7;
-            --negro: #201c20;
-            --morado: #7b4fd8;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            max-width: 100%;
-            overflow-x: hidden;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #fff5fa 0%, #f8ecff 100%);
-            color: var(--negro);
-        }
-
-        .navbar {
-            background: rgba(32, 28, 32, 0.92) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            padding: 16px 0;
-        }
-
-        .brand {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .brand span {
-            color: #ff9ec7;
-        }
-
-        .hero {
-            padding: 80px 0 40px;
-            background: radial-gradient(circle at top, #fff 0%, #fef1f7 35%, #f7ebff 100%);
-        }
-
-        .hero .container {
-            max-width: 1100px;
-        }
-
-        .hero-card {
-            background: rgba(255,255,255,0.7);
-            border: 1px solid rgba(255, 77, 141, 0.1);
-            border-radius: 28px;
-            box-shadow: 0 20px 60px rgba(123, 79, 216, 0.12);
-            padding: 40px 35px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--rosa-claro);
-            color: var(--rosa-oscuro);
-            padding: 8px 14px;
-            border-radius: 999px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 5rem);
-            font-weight: 800;
-            margin: 18px 0 16px;
-            line-height: 1.05;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #544a53;
-            max-width: 620px;
-        }
-
-        .heart {
-            color: var(--rosa);
-            font-size: 1.4rem;
-            margin: 0 8px;
-        }
-
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .cta {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--rosa), var(--morado));
-            color: white;
-            padding: 14px 26px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(123, 79, 216, 0.25);
-            border: 1px solid transparent;
-        }
-
-        .cta.secondary {
-            background: linear-gradient(135deg, var(--rosa), var(--morado));
-            color: white;
-            box-shadow: 0 10px 25px rgba(123, 79, 216, 0.25);
-        }
-
-        .photo-stack {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            max-width: 900px;
-            margin: 28px auto 0;
-        }
-
-        .photo-stack img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            display: block;
-            max-width: 100%;
-        }
-
-        .photo-stack img:nth-child(1) {
-            transform: translateY(18px);
-        }
-
-        .photo-stack img:nth-child(2) {
-            transform: translateY(-8px);
-        }
-
-        .counter-wrap {
-            padding: 30px 0 20px;
-        }
-
-        .counter-box {
-            background: white;
-            border: 1px solid rgba(123, 79, 216, 0.08);
-            border-radius: 22px;
-            padding: 26px 18px;
-            text-align: center;
-            box-shadow: 0 12px 28px rgba(34, 34, 34, 0.06);
-        }
-
-        .counter-number {
-            font-size: clamp(1.8rem, 2vw, 2.5rem);
-            font-weight: 800;
-            color: var(--rosa-oscuro);
-        }
-
-        .counter-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #7d6d7b;
-            margin-top: 10px;
-            font-weight: 700;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 26px;
-            text-align: center;
-        }
-
-        .story {
-            padding: 20px 0 60px;
-        }
-
-        .story-card {
-            background: rgba(255,255,255,0.8);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-            border: 1px solid rgba(123, 79, 216, 0.05);
-        }
-
-        .final-section {
-            padding: 30px 0 80px;
-        }
-
-        .final-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255, 228, 238, 0.85));
-            border: 1px solid rgba(255, 77, 141, 0.14);
-            border-radius: 30px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 20px 45px rgba(123, 79, 216, 0.08);
-        }
-
-        .final-card h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 14px;
-        }
-
-        .final-card p {
-            color: #534c53;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .infinite {
-            font-size: 4rem;
-            color: var(--rosa-oscuro);
-            display: block;
-            margin: 20px 0 10px;
-            line-height: 1;
-        }
-
-        .gallery {
-            padding-bottom: 70px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 24px;
-            box-shadow: 0 16px 34px rgba(0,0,0,0.08);
-            max-width: 100%;
-            display: block;
-        }
-
-        .memory-card {
-            position: relative;
-            background: rgba(255,255,255,0.82);
-            border: 1px solid rgba(123, 79, 216, 0.08);
-            border-radius: 24px;
-            padding: 16px;
-            box-shadow: 0 16px 34px rgba(0,0,0,0.06);
-            min-height: 420px;
-        }
-
-        .memory-card img {
-            display: block;
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 18px;
-            filter: grayscale(0.75) blur(8px) brightness(0.8);
-            transition: all 0.35s ease;
-        }
-
-        .memory-card.unlocked img {
-            filter: none;
-        }
-
-        .memory-card .question-wrap {
-            margin-top: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .memory-card .question-title {
-            font-weight: 700;
-            color: #3b2b42;
-            font-size: 0.95rem;
-        }
-
-        .memory-card .answer-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .memory-card input {
-            flex: 1;
-            border: 1px solid rgba(123, 79, 216, 0.18);
-            border-radius: 12px;
-            padding: 10px 12px;
-            font-size: 0.95rem;
-        }
-
-        .memory-card button {
-            border: none;
-            background: linear-gradient(135deg, var(--rosa), var(--morado));
-            color: white;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .memory-card.unlocked .question-wrap {
-            display: none;
-        }
-
-        .memory-card.shake {
-            animation: shake 0.35s ease-in-out;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-6px); }
-            50% { transform: translateX(6px); }
-            75% { transform: translateX(-4px); }
-        }
-
-        /* ===== Premio final ===== */
-        .prize-section {
-            padding: 10px 0 80px;
-        }
-
-        .prize-card {
-            position: relative;
-            max-width: 760px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(247, 235, 255, 0.9));
-            border: 1px solid rgba(123, 79, 216, 0.14);
-            border-radius: 30px;
-            padding: 44px 30px;
-            text-align: center;
-            box-shadow: 0 20px 45px rgba(123, 79, 216, 0.1);
-            overflow: hidden;
-        }
-
-        .prize-locked .lock {
-            display: block;
-            font-size: 3.5rem;
-            line-height: 1;
-            margin-bottom: 14px;
-        }
-
-        .prize-locked p {
-            color: #534c53;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            max-width: 520px;
-            margin: 0 auto 22px;
-        }
-
-        .prize-progress {
-            width: 100%;
-            max-width: 420px;
-            height: 12px;
-            background: var(--rosa-claro);
-            border-radius: 999px;
-            margin: 0 auto 10px;
-            overflow: hidden;
-        }
-
-        .prize-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(135deg, var(--rosa), var(--morado));
-            border-radius: 999px;
-            transition: width 0.5s ease;
-        }
-
-        .prize-count {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #7d6d7b;
-        }
-
-        .prize-content {
-            display: none;
-        }
-
-        .prize-card.unlocked .prize-locked {
-            display: none;
-        }
-
-        .prize-card.unlocked .prize-content {
-            display: block;
-            animation: prizePop 0.7s cubic-bezier(.2, 1.4, .4, 1);
-        }
-
-        .prize-content .gift {
-            display: block;
-            font-size: 4rem;
-            line-height: 1;
-            margin-bottom: 12px;
-        }
-
-        .prize-content h3 {
-            font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-            font-weight: 800;
-            margin-bottom: 14px;
-            color: var(--rosa-oscuro);
-        }
-
-        .prize-content p {
-            color: #534c53;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        @keyframes prizePop {
-            0% { opacity: 0; transform: scale(0.85); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        footer {
-            background: #201c20;
-            color: rgba(255,255,255,0.8);
-            text-align: center;
-            padding: 24px 0;
-            font-weight: 600;
-        }
-
-        @media (max-width: 991px) {
-            .photo-stack {
-                margin-top: 24px;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 767px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 60px;
-            }
-
-            .hero-card {
-                padding: 26px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -543,8 +80,8 @@
     <section class="story">
         <div class="container">
             <div class="story-card">
-                <h3 style="font-weight: 800; margin-bottom: 16px;">Nuestra historia</h3>
-                <p style="margin: 0; font-size: 1.05rem; color: #473d47; line-height: 1.8;">
+                <h3>Nuestra historia</h3>
+                <p>
                     Cada día con vos se siente especial. Hay momentos pequeños, risas, conversaciones,
                     planes y recuerdos que hicieron que nuestro amor crezca más y más. Este contador es
                     una forma de guardar ese tiempo, ese cariño y cada segundo compartido.
@@ -598,7 +135,7 @@
                     <!-- CAMBIÁ ESTE TEXTO POR TU PREMIO -->
                     <p>
                         Ganaste un abrazo gigante, un beso eterno y todo mi amor. Gracias por ser parte de mi vida y por hacer que cada día sea especial. ¡Te amo hasta los confines de samabri!
-                        Ademas por unica vez no se vale volver a reclamar este premio, un franui <3
+                        Ademas por unica vez no se vale volver a reclamar este premio, un franui &lt;3
                     </p>
                 </div>
             </div>
@@ -608,6 +145,7 @@
     <footer>
         Sambri • Amor en cada segundo
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -643,6 +181,7 @@
         }
 
         const orderedPhotos = [...photoFiles].sort((a, b) => extractDateValue(b) - extractDateValue(a));
+
         const hiddenPhotoPrompts = [
             { question: '¿Cómo se llama el tercer integrante del universo?', answer: 'kira' },
             { question: '¿Primer lugar en que vimos lobos marinos?', answer: 'piriapolis' },
@@ -675,21 +214,21 @@
             `).join('');
 
             const hiddenMarkup = hiddenPhotos.map((src, index) => {
-    const prompt = hiddenPhotoPrompts[index % hiddenPhotoPrompts.length];
-    return `
-        <div class="memory-card" data-answer="${prompt.answer}">
-            <img src="${src}" alt="Momento ${index + 5}">
-            <div class="question-wrap">
-                <div class="question-title">${prompt.question}</div>
-                <div class="answer-row">
-                    <input type="text" class="answer-input" placeholder="Tu respuesta"
-                        enterkeyhint="send" autocomplete="off" autocapitalize="off">
-                    <button type="button" class="answer-btn">Responder</button>
-                </div>
-            </div>
-        </div>
-    `;
-}).join('');
+                const prompt = hiddenPhotoPrompts[index % hiddenPhotoPrompts.length];
+                return `
+                    <div class="memory-card" data-answer="${prompt.answer}">
+                        <img src="${src}" alt="Momento ${index + 5}">
+                        <div class="question-wrap">
+                            <div class="question-title">${prompt.question}</div>
+                            <div class="answer-row">
+                                <input type="text" class="answer-input" placeholder="Tu respuesta"
+                                    enterkeyhint="send" autocomplete="off" autocapitalize="off">
+                                <button type="button" class="answer-btn">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
 
             container.innerHTML = visibleMarkup + hiddenMarkup;
 
@@ -706,7 +245,7 @@
                     }
                 });
             });
-            
+
             updatePrizeProgress();
         }
 
@@ -753,14 +292,14 @@
         }
 
         function launchConfetti() {
-                const colors = ['#ff4d8d', '#d63c75', '#7b4fd8', '#ffe4ee'];
-                const end = Date.now() + 2500;
+            const colors = ['#ff4d8d', '#d63c75', '#7b4fd8', '#ffe4ee'];
+            const end = Date.now() + 2500;
 
-                (function frame() {
-                    confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0, y: 0.8 }, colors });
-                    confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1, y: 0.8 }, colors });
-                    if (Date.now() < end) requestAnimationFrame(frame);
-                })();
+            (function frame() {
+                confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0, y: 0.8 }, colors });
+                confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1, y: 0.8 }, colors });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            })();
         }
 
         function updatePrizeProgress() {
@@ -782,8 +321,8 @@
                     document.getElementById('premio').scrollIntoView({ behavior: 'smooth', block: 'center' });
                     setTimeout(launchConfetti, 700);
                 }, 800);
+            }
         }
-    }
 
         function resolveCardAnswer(card) {
             const input = card.querySelector('.answer-input');
@@ -800,8 +339,8 @@
                 card.classList.add('shake');
                 input.value = '';
                 input.focus();
+            }
         }
-}
 
         renderGallery('storyGallery');
 
