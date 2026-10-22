@@ -7,6 +7,16 @@
     <title>Sambri</title>
     <link rel="icon" type="image/png" href="images/images.png">
     <link rel="apple-touch-icon" href="images/images.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="images/images.png" color="#ff4d8d">
+    <link rel="shortcut icon" href="images/images.png">
+    <link rel="apple-touch-startup-image" href="images/images.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/images.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/images.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/images.png">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#ff4d8d">
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -665,27 +675,34 @@
             `).join('');
 
             const hiddenMarkup = hiddenPhotos.map((src, index) => {
-                const prompt = hiddenPhotoPrompts[index % hiddenPhotoPrompts.length];
-                return `
-                    <div class="memory-card" data-answer="${prompt.answer}">
-                        <img src="${src}" alt="Momento ${index + 5}">
-                        <div class="question-wrap">
-                            <div class="question-title">${prompt.question}</div>
-                            <div class="answer-row">
-                                <input type="text" class="answer-input" placeholder="Tu respuesta">
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+    const prompt = hiddenPhotoPrompts[index % hiddenPhotoPrompts.length];
+    return `
+        <div class="memory-card" data-answer="${prompt.answer}">
+            <img src="${src}" alt="Momento ${index + 5}">
+            <div class="question-wrap">
+                <div class="question-title">${prompt.question}</div>
+                <div class="answer-row">
+                    <input type="text" class="answer-input" placeholder="Tu respuesta"
+                        enterkeyhint="send" autocomplete="off" autocapitalize="off">
+                    <button type="button" class="answer-btn">Responder</button>
+                </div>
+            </div>
+        </div>
+    `;
+}).join('');
 
             container.innerHTML = visibleMarkup + hiddenMarkup;
 
-            document.querySelectorAll('.answer-input').forEach((input) => {
+            container.querySelectorAll('.memory-card').forEach((card) => {
+                const input = card.querySelector('.answer-input');
+                const btn = card.querySelector('.answer-btn');
+
+                btn.addEventListener('click', () => resolveCardAnswer(card));
+
                 input.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter') {
-                        const card = event.target.closest('.memory-card');
-                        if (card) resolveCardAnswer(card);
+                    if (event.key === 'Enter' || event.keyCode === 13) {
+                        event.preventDefault();
+                        resolveCardAnswer(card);
                     }
                 });
             });
